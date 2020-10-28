@@ -1,12 +1,9 @@
-import networkx as nx
-import matplotlib.pyplot as plt
-
 from utils.graph_generator import GraphGenerator
+from utils.graph_printer import GraphPrinter
+from utils.max_flow_problem_solver import MaxFlowProblemSolver
 
-G = GraphGenerator.generate()
-plt.subplot()
-layout = nx.shell_layout(G, scale=5)
-edge_labels = nx.get_edge_attributes(G, 'weight')
-nx.draw(G, pos=layout, with_labels=True, font_color='w', font_size=9)
-nx.draw_networkx_edge_labels(G, pos=layout, font_size=8, edge_labels=edge_labels)
-plt.show()
+G = GraphGenerator.generate(max_nodes=6, max_edges=30, max_weight=20)
+GraphPrinter.print_graph(G)
+# GraphPrinter.print_edges(G)
+solver = MaxFlowProblemSolver(G)
+print(solver.solve(1, 6))
