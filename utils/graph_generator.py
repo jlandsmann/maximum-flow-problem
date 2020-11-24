@@ -13,6 +13,7 @@ class GraphGenerator:
         for i in range(1, max_edges):
             start = random.randint(1, max_nodes)
             end = random.randint(1, max_nodes)
-            weight = random.randint(1, max_weight)
-            graph.add_weighted_edges_from([(np.minimum(start, end), np.maximum(start, end), weight)])
+            capacity = weight = random.randint(1, max_weight)
+            flow = 0
+            graph.add_weighted_edges_from(ebunch_to_add=[(np.minimum(start, end), np.maximum(start, end), weight)], capacity=capacity, flow=flow)
         return graph
