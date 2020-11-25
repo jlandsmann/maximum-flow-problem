@@ -1,8 +1,7 @@
 import time
 
-from utils.edmonds_karp import EdmondsKarp
+from edmonds_karp import EdmondsKarp
 from utils.graph_generator import GraphGenerator
-from utils.max_flow_problem_solver import MaxFlowProblemSolver
 
 max_node_count = 1000
 max_edge_count = 6000
